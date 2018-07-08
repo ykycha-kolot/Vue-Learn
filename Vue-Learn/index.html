@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TODO List</title>
+</head>
+<body>
+<div id="app">
+  <input v-model="taskName">
+  <ul>
+    <li v-for="(task, index) in list" :key="index">{{ task }}-{{index}} <button @click="removeTask(index)">Remove</button></li>
+  </ul>
+  <button @click="addTask" @keyup.enter="addTask">Add task</button>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
