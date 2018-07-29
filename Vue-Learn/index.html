@@ -5,11 +5,17 @@
 </head>
 <body>
 <div id="app">
-  <input v-model="taskName">
+  <input v-model="taskName"><button @click="addTask" @keyup.enter="addTask">Add task</button>
   <ul>
-    <li v-for="(task, index) in list" :key="index">{{ task }}-{{index}} <button @click="removeTask(index)">Remove</button></li>
+    <li v-for="(task, index) in list" :key="index">
+
+    </li>
   </ul>
-  <button @click="addTask" @keyup.enter="addTask">Add task</button>
+  <template v-for="(task, index) in list">
+    <input :disabled="disabled" :value="task" :key="index"/>
+    <button @click="removeTask(index)">Remove</button>
+    <button @click="modifyTask(index)">edit task</button></li>
+  </template>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="js/scripts.js"></script>

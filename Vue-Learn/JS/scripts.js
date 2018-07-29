@@ -2,18 +2,24 @@ var app = new Vue({
     el: '#app',
     data: {
         list: [],
-        taskName: ''
+        taskName: '',
+        disabled: true,
     },
     methods: {
         addTask(){
-            let elem = this.taskName;
-            this.list.push(elem);
-            elem = '';
-            console.log(this.list)
+            this.list.push(this.taskName);
+            this.taskName = '';
         },
         removeTask(index){
             this.list.splice(index, 1);
-            console.log(index);
+        },
+        modifyTask(index){
+            console.log(this.list[index]);
+            this.list[index].disabled = false;
+            console.log(this.list[index].disabled);
+        },
+        saveTask(){
+
         }
     }
 });
